@@ -1,0 +1,61 @@
+section {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+   
+}
+
+.best {
+    height: 300px;
+    border-bottom: 1px solid #d4d4d4;
+    background-color: red;
+}
+.title {
+   height: 40px;
+   background-color: blue;
+}
+.contents {
+    width: 67.4%;
+    padding : 10px;
+    /* float: left; */
+    display: inline-block;
+    background-color: bisque;
+}
+
+.category {
+    width: 48%;
+    background-color: green;
+    height: 300px;
+    display: inline-block;
+    margin :12px;
+}
+
+.sub_container {
+    width: 30%;
+    padding: 10px;
+    float: right;
+    margin-right: 3px;
+    height: 300px;
+    background-color: greenyellow;
+}
+
+.visitors {
+    height: 50px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d4d4d4;
+    background-color: red;
+}
+
+.rank {
+    height: 300px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #d4d4d4;
+    background-color: bule;
+}
+
+.advertise {
+    height: 200px;
+    background-color: yellow;
+}

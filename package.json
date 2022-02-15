@@ -4,11 +4,29 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "server": "cd server && nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
-  }
+    "concurrently": "^7.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "http-proxy-middleware": "^2.0.2"
+   
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlghrms1992/boardInNodeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dlghrms1992/boardInNodeJS/issues"
+  },
+  "homepage": "https://github.com/dlghrms1992/boardInNodeJS#readme"
 }
