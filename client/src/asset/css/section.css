@@ -25,11 +25,11 @@ section {
 }
 
 .category {
-    width: 48%;
+    width: 47%;
     background-color: green;
     height: 300px;
     display: inline-block;
-    margin :12px;
+    margin :18px;
 }
 
 .sub_container {
