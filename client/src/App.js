@@ -11,7 +11,8 @@ import './asset/css/footer.css';
 
 function App() {
   const callIndex = async () => {
-    axios.get("/api").then((res) => console.log(res.data.test));
+    axios.get("/api").then((res) => console.log(res.data.list));
+
   };
 
   useEffect(() => {
