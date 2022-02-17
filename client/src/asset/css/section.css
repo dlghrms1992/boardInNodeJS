@@ -9,24 +9,49 @@ section {
 
 .best {
     height: 300px;
-    border-bottom: 1px solid #d4d4d4;
-    background-color: red;
+    /* border-bottom: 1px solid #d4d4d4; */
+    /* background-color: red; */
 }
 .title {
    height: 40px;
-   background-color: blue;
+   /* background-color:; */
+   border-bottom: 1px solid #eee;
 }
+
+.title div {
+    margin-top: 10px;
+}
+.title div.text {
+    display: inline-block;
+    float: left;
+  
+}
+.text span{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.more-category {
+    float: right;
+    display: inline-block;
+}
+
+.more-category span {
+    font-size: 12px;
+}
+
+
 .contents {
     width: 67.4%;
     padding : 10px;
     /* float: left; */
     display: inline-block;
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
 .category {
     width: 47%;
-    background-color: green;
+    /* background-color: green; */
     height: 300px;
     display: inline-block;
     margin :18px;
