@@ -3,15 +3,21 @@ section {
     width: 100%;
 }
 
+.main {
+   min-width: 1500px;
+}
 .container {
-   
+   display: flex;
+   max-width: 1500px;
+   margin-left: 10%;
+   flex-direction: row;
 }
 
 .best {
     height: 300px;
-    /* border-bottom: 1px solid #d4d4d4; */
-    /* background-color: red; */
 }
+
+
 .title {
    height: 40px;
    /* background-color:; */
@@ -42,27 +48,28 @@ section {
 
 
 .contents {
-    width: 67.4%;
+    /* width: 67.4%; */
     padding : 10px;
     /* float: left; */
-    display: inline-block;
+    box-sizing: border-box;
     /* background-color: bisque; */
 }
 
 .category {
-    width: 47%;
+    /* width: 47%; */
     /* background-color: green; */
     height: 300px;
+    max-width: 457px;
     display: inline-block;
     margin :18px;
 }
 
 .sub_container {
-    width: 30%;
+    width: 31%;
     padding: 10px;
-    float: right;
     margin-right: 3px;
     height: 300px;
+    flex-direction: row;
     background-color: greenyellow;
 }
 
