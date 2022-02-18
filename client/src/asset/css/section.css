@@ -15,6 +15,7 @@ section {
 
 .best {
     height: 300px;
+    margin: 18px;
 }
 
 
@@ -49,6 +50,8 @@ section {
 
 .contents {
     /* width: 67.4%; */
+    width: 1000px;
+    max-width: 1000px;
     padding : 10px;
     /* float: left; */
     box-sizing: border-box;
@@ -57,19 +60,22 @@ section {
 
 .category {
     /* width: 47%; */
+    width: 379px;
     /* background-color: green; */
     height: 300px;
-    max-width: 457px;
+    max-width: 379px;
     display: inline-block;
     margin :18px;
 }
 
 .sub_container {
-    width: 31%;
+    width: 480px;
+    max-width: 480px;
     padding: 10px;
     margin-right: 3px;
     height: 300px;
     flex-direction: row;
+    margin: 18px;
     background-color: greenyellow;
 }
 

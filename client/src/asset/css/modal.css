@@ -1,0 +1,14 @@
+.modalHeader {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+.modalSection {
+    height: 300px;
+    background-color: red;
+}
+
+.modalFooter {
+    height: 50px;
+    border-top: 1px solid #eee;
+}

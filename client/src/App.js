@@ -8,6 +8,8 @@ import './asset/css/nav.css';
 import './asset/css/header.css';
 import './asset/css/section.css';
 import './asset/css/footer.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const callIndex = async () => {
