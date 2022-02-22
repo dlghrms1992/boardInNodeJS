@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
+import LoginModal from '../modal/loginModal.js';
 
 export default class Nav extends Component {
     constructor(props) {
@@ -29,7 +30,9 @@ export default class Nav extends Component {
     }
 
     loginClick(){
-        console.log("modal 띄우기전 테스트 입니다.");
+        console.log("modal 띄우기전 테스트 입니다." + this.state.loginOn);
+
+        return  this.state.loginOn;
     }
 
     render(){
@@ -57,6 +60,7 @@ export default class Nav extends Component {
                         </div>
                     </div>
                 </div>
+                <div></div>
             </nav>
         );
     }

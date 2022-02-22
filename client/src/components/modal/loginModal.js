@@ -1,15 +1,23 @@
 import React, {Component,useState} from 'react';
-import {Modal,Button, Form} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
+import ReactModal from 'react-modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header.js';
 import Footer from './footer.js';
 import Section from './section.js';
 
-
 export default class LoginModal extends Comment {
+    constructor(props){
+        super(props)
+        this.state = {
+              
+        };   
+    }
+    
     render(){
         // const {login, register, close} = this.props;
         return (
+
         <div className="wrapper">
             <Header/>
                 <Section>

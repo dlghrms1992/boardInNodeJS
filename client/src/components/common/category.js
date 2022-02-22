@@ -27,7 +27,7 @@ export default class category extends Component {
             return  titleList.map((titleList) =>  (
             <div className="category">
                 <div className="title">
-                    <div className="text"><span>{titleList.toy_title}</span></div>
+                    <div className="text"  key="{titleList.toy_title}"><span>{titleList.toy_title}</span></div>
                     <div className="more-category"><span>더보기</span></div>    
                 </div>  
                 <div className="category-list"></div>
