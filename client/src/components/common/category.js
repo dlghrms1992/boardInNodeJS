@@ -5,7 +5,7 @@ export default class category extends Component {
     constructor(props){
         super(props)
         this.state = {
-          titleList : [],          
+          titleList : []     
         };   
     }
 

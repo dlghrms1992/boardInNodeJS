@@ -7,9 +7,11 @@ export default class Nav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeOn: true,
-            writeOn : true,
-            loginOn : true
+            homeOn: false,
+            writeOn : false,
+            isOpened : false,
+            isClosed : false,
+            title : '',
         };
         this.homeClick = this.homeClick.bind(this);
         this.writeClick = this.writeClick.bind(this);
@@ -30,16 +32,17 @@ export default class Nav extends Component {
     }
 
     loginClick(){
-        console.log("modal 띄우기전 테스트 입니다." + this.state.loginOn);
-
-        return  this.state.loginOn;
+        this.setState(
+                {
+                    isOpened: true,
+                });
+        console.log("modal 띄우기전 테스트 입니다." + this.state.isOpened);
+        console.log("modal 띄우기전 테스트 입니다." + this.state.isOpened);
+        return  this.state.isOpened;
     }
 
     render(){
-        // const home = this.state.home;
-        // const search = this.state.search;
-        // const write = this.state.write;
-        // const login = this.state.login;
+        //  const [showModal, setShowModal] = useState(false);
         return (
             <nav className="nav">
                 <div className="top">
@@ -57,10 +60,11 @@ export default class Nav extends Component {
                         </div>
                         <div className="subMenu">
                             <Button  className="login" onClick={this.loginClick}>로그인</Button>
+                            <LoginModal isOpened={this.state.isOpened} isClosed={this.state.isClosed} title="로그인" ></LoginModal>
                         </div>
                     </div>
                 </div>
-                <div></div>
+        
             </nav>
         );
     }
