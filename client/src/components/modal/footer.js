@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-
+import {Modal} from 'react-bootstrap';
 export default class Footer extends Component {
     render(){
         return (
-            <footer className="modalFooter">
+            <Modal.Footer className="modalFooter">
         
-            </footer>
+            </Modal.Footer>
         );
     }
 }

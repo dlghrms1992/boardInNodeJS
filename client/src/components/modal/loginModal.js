@@ -3,17 +3,35 @@ import {Button, Form, Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header.js';
 import Footer from './footer.js';
-import Section from './section.js';
+
 
 export default class LoginModal extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isClosed : false,
+        };
+        this.isClose = this.isClose.bind(this);
+        console.log("props ==> " ,this.props);
 
+    }
+
+    isClose = () => {
+
+        this.setState({
+            isClosed : false,
+        })
+         console.log("closed Modal~!" + this.state.isClosed);
+        return this.state.isClosed;
+    }
     render(){
         // console.log("loginModal ==> ", this.props);
-        const {isOpened, isClose, title} = this.props;
+        const {isOpened, title} = this.props;
+
         return (
-            <Modal show={isOpened} className={isOpened ? 'openModal modal' : 'modal'}>
-                <Header title={title} isClose={isClose} />
-                    <Section>
+            <Modal show={isOpened} className={isOpened ? 'loginModal' : 'modal'} onHide={this.isClose}>
+                <Header title={title} />
+                    <Modal.Body>
                         <div className="longinContainer">
                             <div className="loginInput">
                             <Form.Control type="text" className="loginId" placeholder="아이디를 입력해주세요!" />
@@ -31,7 +49,7 @@ export default class LoginModal extends Component{
                             <Button>카카오</Button>
                             <Button>구글</Button>
                         </div>
-                    </Section>
+                    </Modal.Body>
                 <Footer/> 
             </Modal>
         );

@@ -1,30 +1,22 @@
 import React, {Component} from 'react';
-
+import {Modal} from 'react-bootstrap';
 export default class Header extends Component {
     constructor(props){
-        super(props)
-        this.closeClick = this.closeClick.bind(this);
-        console.log("modal header ==> ", props);
-    }
+        super(props);
 
-    closeClick = () => {
-        this.setState({close : true});
-        
     }
     render(){
-
         const {title, isClosed} = this.props;
         return (
-            <header className="modalHeader">
-                <div className="top">
-                    <div className="">
-                        <span>테스트입니다.</span>   
+            <Modal.Header className="modalHeader" closeButton>
+                <Modal.Title>
+                    <div className="top">
+                        <div className="modalTitle">
+                            <span>{title}</span>   
+                        </div>
                     </div>
-                </div>
-                <div className="close" onClick={this.closeClick}>
-                    닫기입니다.
-                </div>
-            </header> 
+                </Modal.Title>
+            </Modal.Header> 
         );
     }
 }
