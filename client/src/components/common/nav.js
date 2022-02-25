@@ -9,14 +9,12 @@ export default class Nav extends Component {
         this.state = {
             homeOn: false,
             writeOn : false,
-            isOpened : false,
+            isOpened : true ? false : false,
             isClosed : false,
             title : '',
         };
-        this.homeClick = this.homeClick.bind(this);
-        this.writeClick = this.writeClick.bind(this);
-        this.loginClick = this.loginClick.bind(this);
-        this.searchClick = this.searchClick.bind(this);
+        // this.logindModalClose = this.logindModalClose.bind(this.state);
+        console.log('nav ===== >', typeof this.state.isOpened);
     }
 
     homeClick(){
@@ -31,18 +29,18 @@ export default class Nav extends Component {
 
     }
 
-    loginClick(){
-        this.setState(
-                {
-                    isOpened: true,
-                });
-        console.log("modal 띄우기전 테스트 입니다." + this.state.isOpened);
-        console.log("modal 띄우기전 테스트 입니다." + this.state.isOpened);
-        return  this.state.isOpened;
+    loginClick = () => {
+        this.setState({ isOpened: true});
+    }
+
+    componentDidMount = (prevProps, prevState) => {
+        console.log("this state 언제호출?");
+        console.log(prevProps);
+        console.log(prevState);
     }
 
     render(){
-        //  const [showModal, setShowModal] = useState(false);
+
         return (
             <nav className="nav">
                 <div className="top">
@@ -60,7 +58,9 @@ export default class Nav extends Component {
                         </div>
                         <div className="subMenu">
                             <Button  className="login" onClick={this.loginClick}>로그인</Button>
-                            <LoginModal isOpened={this.state.isOpened} isClosed={this.state.isClosed} title="로그인" ></LoginModal>
+                            {this.state.isOpened ?
+                             <LoginModal isOpened={this.state.isOpened} isClosed={this.state.isClosed} title="로그인" ></LoginModal>
+                            : null}
                         </div>
                     </div>
                 </div>
