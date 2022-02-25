@@ -14,21 +14,15 @@ export default class LoginModal extends Component{
             isOpened : this.props.isOpened,
             title : this.props.title,
         };
-        this.isClose = this.isClose.bind(this.state.isClosed);
+        // this.isClose = this.isClose.bind(this.state.isClosed);
 
-    }
-
-    isClose = () => {
-        // this.componentWillUnmount();
-         console.log("closed Modal~!", this.state);
-         loginClick();
     }
 
     render(){
         const {isOpened, isClosed, title} = this.state;
         return (
       
-                <Modal show={isOpened} className={isOpened ? 'loginModal' : 'modal'} onHide={this.isClose.bind(this.state.isClosed)}>
+                <Modal show={isOpened} className={isOpened ? 'loginModal' : 'modal'} onHide={isClosed}>
                         <Header title={this.state.title} />
                             <Modal.Body>
                                 <div className="longinContainer">

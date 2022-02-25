@@ -10,7 +10,6 @@ export default class Nav extends Component {
             homeOn: false,
             writeOn : false,
             isOpened : true ? false : false,
-            isClosed : false,
             title : '',
         };
         // this.logindModalClose = this.logindModalClose.bind(this.state);
@@ -33,12 +32,17 @@ export default class Nav extends Component {
         this.setState({ isOpened: true});
     }
 
-    componentDidMount = (prevProps, prevState) => {
-        console.log("this state 언제호출?");
-        console.log(prevProps);
-        console.log(prevState);
-    }
-
+    isClosed = () => {
+        console.log('modal 반납');
+        this.setState({
+            homeOn: false,
+            writeOn : false,
+            isOpened : true ? false : false,
+            isClosed : false,
+            title : '',
+        });
+        console.log("satee ==> ", this.state);
+    } 
     render(){
 
         return (
@@ -59,7 +63,7 @@ export default class Nav extends Component {
                         <div className="subMenu">
                             <Button  className="login" onClick={this.loginClick}>로그인</Button>
                             {this.state.isOpened ?
-                             <LoginModal isOpened={this.state.isOpened} isClosed={this.state.isClosed} title="로그인" ></LoginModal>
+                             <LoginModal isOpened={this.state.isOpened} isClosed={this.isClosed} title="로그인" ></LoginModal>
                             : null}
                         </div>
                     </div>
