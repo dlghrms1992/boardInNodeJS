@@ -41,8 +41,8 @@ export default class Nav extends Component {
             isClosed : false,
             title : '',
         });
-        console.log("satee ==> ", this.state);
-    } 
+    }
+    
     render(){
 
         return (
