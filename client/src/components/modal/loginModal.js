@@ -18,34 +18,36 @@ export default class LoginModal extends Component{
 
     }
 
+    register = () => {
+        console.log("회원가입 시작입니다.~!");
+    }
+
     render(){
         const {isOpened, isClosed, title} = this.state;
         return (
-      
                 <Modal show={isOpened} className={isOpened ? 'loginModal' : 'modal'} onHide={isClosed}>
                         <Header title={this.state.title} />
                             <Modal.Body>
                                 <div className="longinContainer">
                                     <div className="loginInput">
-                                    <Form.Control type="text" className="loginId" placeholder="아이디를 입력해주세요!" />
-                                    <Form.Control type="text" className="loginPassword" placeholder="패스워드를 입력해주세요!" />
+                                        <Form.Control type="text" className="loginId" placeholder="아이디를 입력해주세요!" />
+                                        <Form.Control type="text" className="loginPassword" placeholder="패스워드를 입력해주세요!" />
                                     </div>
                                     <div className="loginButton">
                                         <Button className="login">로그인</Button>
                                     </div>
                                 </div>
-                                <div className="resigeterContainer">
-                                    <Button>비밀번호 찾기</Button>
-                                    <Button>회원가입</Button>
+                                <div className="registerContainer">
+                                    <Button className="findPassword">비밀번호 찾기</Button>
+                                    <Button className="register" onClick={this.register}>회원가입</Button>
                                 </div>
                                 <div className="subContainer">
-                                    <Button>카카오</Button>
-                                    <Button>구글</Button>
+                                    <Button className="kakao">카카오</Button>
+                                    <Button className="google">구글</Button>
                                 </div>
                             </Modal.Body>
                         <Footer/> 
                     </Modal>
-
          );
     }
 }

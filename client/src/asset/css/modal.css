@@ -7,8 +7,39 @@
     height: 300px;
     background-color: red;
 }
-
 .modalFooter {
-    height: 50px;
+    height: 10px;
     border-top: 1px solid #eee;
+}
+.loginInput {
+    margin: 5px;
+}
+
+.loginInput input {
+    margin-top: 5px;
+}
+
+.loginButton .login {
+    color: white;
+    background-color: #222;
+}
+
+.loginButton, .subContainer {
+    margin: 5px
+}
+.registerContainer {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}  
+.registerContainer button {
+    width: 200px;
+    margin-left: 5px;
+}  
+.loginButton button, .subContainer button{
+    width: 457px;
+}
+
+.subContainer .google {
+    margin-top:5px;
 }
