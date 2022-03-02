@@ -9,7 +9,7 @@ export default class Header extends Component {
         const {title, isClosed} = this.props;
         return (
             <Modal.Header className="modalHeader" closeButton>
-                <Modal.Title>
+                <Modal.Title id="contained-modal-title-vcenter">
                     <div className="top">
                         <div className="modalTitle">
                             <span>{title}</span>   
