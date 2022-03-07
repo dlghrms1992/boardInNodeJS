@@ -5,8 +5,13 @@ const port = 12201;
 const http = require('http').createServer(app);
 const cors = require('cors');
 const index = require('./Router/index');
-const register = require('./Router/user');
 app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use("/api", index);
-app.use("/register", register);
 http.listen(port, (req, res) => console.log("Listenning Port => " + port));

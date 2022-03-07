@@ -24,7 +24,6 @@ export default class Register extends Component {
 
     register = async() => {
         console.log("회원가입 합시다=> ", this.state);
-        console.log("call title");
         let params = {};
         params.loginId= this.state.loginId;
         params.name= this.state.name;
@@ -33,13 +32,16 @@ export default class Register extends Component {
         params.email= this.state.email;
     
         try {
-            const resopnse = await axios.post("http://localhost:12201/register", params);
-            const data = resopnse;
-            if(data.result){
-                console.log("register sucess - > ", data.result);
-            }else{
-                console.log("register fail == > ", data.msg);
-            }
+            axios.post("http://localhost:12201/register", params).then(res => {
+                console.log("test ==> ", res);
+                console.log("test ==> ", res.data);
+            });
+            // const data = resopnse;
+            // if(data.result){
+            //     console.log("register sucess - > ", data.result);
+            // }else{
+            //     console.log("register fail == > ", data.msg);
+            // }
         }catch(error) {
             console.log("err == > ", error);
         }

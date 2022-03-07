@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const db_config = require('../../db/database.js');
-// const conn = db_config.init();
-// db_config.connect(conn);
+const db_config = require('../../db/database.js');
+const conn = db_config.init();
+db_config.connect(conn);
 
 router.post("/register", (req, res) => {
     const sql = 'insert inte toy_user values(?, ?, ?, ?, ?, ?, ?, ?)';
