@@ -7,14 +7,14 @@ const router = express.Router();
 const db_config = require('../../db/database.js');
 const conn = db_config.init();
 db_config.connect(conn);
-
+console.log("testt == >", router);
 router.get("/", (req, res) => {
     const sql = 'select * from toy_title';
     conn.query(sql, function(err, rows, fields){
         if(err) console.error("query is not excuted fail ---> " + err);    
         else res.send({list:rows});
     });
-    db_config.end(conn);
+    // db_config.end(conn);
 });
 
 // app.use("/register", register);
