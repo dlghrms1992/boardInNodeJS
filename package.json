@@ -19,8 +19,10 @@
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.2",
     "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "query-string": "^7.1.1",
-    "react-bootstrap": "^2.1.2"
+    "react-bootstrap": "^2.1.2",
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

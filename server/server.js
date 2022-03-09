@@ -5,7 +5,7 @@ const port = 12201;
 const http = require('http').createServer(app);
 const cors = require('cors');
 const index = require('./Router/index');
-const register = require('./Router/user');
+const user = require('./Router/user');
 app.use(cors());
 
 app.use(
@@ -15,6 +15,6 @@ app.use(
     })
   );
 
-app.use("/register", register);
+app.use("/user", user);
 app.use("/api", index);
 http.listen(port, (req, res) => console.log("Listenning Port => " + port));
