@@ -3,7 +3,7 @@ const router = express.Router();
 const db_config = require('../../db/database.js');
 const conn = db_config.init();
 db_config.connect(conn);
-console.log("testt == >", router);
+
 router.post("/register", (req, res) => {
     const sql = 'insert inte toy_user values(?, ?, ?, ?, ?, ?, ?, ?)';
     console.log("db 넣기전 테스트",req);
