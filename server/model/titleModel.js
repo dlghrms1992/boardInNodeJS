@@ -1,5 +1,5 @@
-module.exports = (sequlize, DataTypes) => {
-    return sequlize.define('toy_title', {
+module.exports = (sequelize, DataTypes) => {
+    return sequelize.define('toy_title', {
         toy_id: {
             type : DataTypes.INTEGER,
             primaryKey: true,
@@ -8,6 +8,8 @@ module.exports = (sequlize, DataTypes) => {
         toy_title: {
           type: DataTypes.STRING,
           allowNull: true,
-        }
+        }   
+    },{
+        timestamps:false,
     })
 }

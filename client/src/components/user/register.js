@@ -25,11 +25,11 @@ export default class Register extends Component {
     register = async() => {
         console.log("회원가입 합시다=> ", this.state);
         let params = {};
-        params.loginId= this.state.loginId;
-        params.name= this.state.name;
-        params.nickName= this.state.nickName;
-        params.password= this.state.password;
-        params.email= this.state.email;
+        params.loginId= this.state.loginId[0];
+        params.name= this.state.name[0];
+        params.nickName= this.state.nickName[0];
+        params.password= this.state.password[0];
+        params.email= this.state.email[0];
     
         try {
             axios.post("http://localhost:12201/user/register", params).then(res => {

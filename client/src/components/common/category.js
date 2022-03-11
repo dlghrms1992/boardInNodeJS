@@ -19,6 +19,7 @@ export default class category extends Component {
         console.log("call title");
         const resopnse = await axios.get("http://localhost:12201/api");
         const data = resopnse;
+        console.log("data ==> ", data);
         return data;
     }
 
