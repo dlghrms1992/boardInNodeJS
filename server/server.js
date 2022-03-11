@@ -6,6 +6,12 @@ const http = require('http').createServer(app);
 const cors = require('cors');
 const index = require('./Router/index');
 const user = require('./Router/user');
+const bodyParser = require('body-parser');
+const {sequelize} = require('./model/index');
+
+
+
+sequelize.sync().then(() => console.log("connected database~!")).catch(err => console.error("error in database connecting ", err));
 app.use(cors());
 
 app.use(
@@ -15,6 +21,8 @@ app.use(
     })
   );
 
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use("/user", user);
 app.use("/api", index);
 http.listen(port, (req, res) => console.log("Listenning Port => " + port));

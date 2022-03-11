@@ -1,8 +1,12 @@
 module.exports = (sequlize, DataTypes) => {
-    return sequlize.define('toy_user', {
+ const User = sequlize.define('toy_users', {
         userid: {
             type : DataTypes.STRING(700),
             primaryKey : true,
+            allowNull : false,
+        },
+        loginId : {
+            type : DataTypes.STRING(700),
             allowNull : false,
         },
         username: {
@@ -34,5 +38,11 @@ module.exports = (sequlize, DataTypes) => {
             allowNull : false,
             defaultValue : sequlize.literal('now()'),
         }
-    })
+    });
+
+    User.associate = function(models){
+
+    };
+
+    return User;
 }
