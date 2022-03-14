@@ -24,8 +24,10 @@ router.post("/register", (req, res) => {
         regdate: new Date(),
     }).then(result => {
         console.log('result ==>', result);
+        res.send({"success": true});
     }).catch(err => {
         console.log("error ==>", err);
+        res.send({"error": err});
     });
 
 
