@@ -8,14 +8,12 @@ const {v4} = require('uuid');
 // const conn = db_config.init();
 // db_config.connect(conn);
 
-router.post("/register", async (req, res) => {
+router.post("/register.do", async (req, res) => {
     // const sql = 'insert inte toy_user values(?, ?, ?, ?, ?, ?, ?, ?)';
     console.log(" call create --- >",req.body);
 
     let params = req.body;
     const {password, salt} = await crypto.encryptPassword(params.password);
-    console.log("test ==> ",  password);
-    console.log("test ==> ",  salt);
     UserModel.create({
         userid: v4(),
         loginId: params.loginId,
@@ -36,6 +34,10 @@ router.post("/register", async (req, res) => {
     });
 
 
+});
+
+router.post("/login.do", async (req, res) => {
+    console.log(" call login --- >",req.body);
 });
 
 module.exports = router;

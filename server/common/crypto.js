@@ -12,13 +12,12 @@ module.exports.encryptPassword = (password) =>
     });
 
 
-module.exports.decodePassword = function(password, code){
+module.exports.decodePassword = (password, code) =>
     crypto.pbkdf2(password, code, 9999, 64, 'sha512', (err, key) => {
         if(err) reject(err);
         var decodePassword = resolve(key.toString('base64'));
         return decodePassword;
-    })
-};
+    });
 
 
 

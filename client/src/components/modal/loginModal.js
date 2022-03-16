@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header.js';
 import Footer from './footer.js';
 import Register from '../user/register.js';
+import axios from 'axios';
 
 
 export default class LoginModal extends Component{
@@ -16,7 +17,7 @@ export default class LoginModal extends Component{
             title : this.props.title,
             isRegister : false,
         };
-        // this.isClose = this.isClose.bind(this.state.isClosed);
+        this.isLogin = this.isLogin.bind(this);
 
     }
 
@@ -26,6 +27,31 @@ export default class LoginModal extends Component{
             isRegister :true,
             title : "회원가입",
         });
+    }
+
+    handleChange = e  => {
+        console.log("call event~!");
+        this.setState({
+            [e.target.id] : [e.target.value],
+        });
+    }
+
+
+    isLogin = () => {
+        console.log(" 로그인 합시다=> ", this.state);
+        let params = {
+            loginId : this.state.loginId[0],
+            password : this.state.password[0],
+        };
+
+        try {
+            axios.post("http://localhost:12201/user/login.do", params).then(res => {
+                console.log("test ==> ", res);
+                console.log("test ==> ", res.data);
+            });
+        }catch(error) {
+            console.log("err == > ", error);
+        }
     }
 
     isBack = () => {
@@ -46,11 +72,11 @@ export default class LoginModal extends Component{
                                 <>
                                     <div className="longinContainer">
                                         <div className="loginInput">
-                                            <Form.Control type="text" className="loginId" placeholder="아이디를 입력해주세요!" />
-                                            <Form.Control type="text" className="loginPassword" placeholder="패스워드를 입력해주세요!" />
+                                            <Form.Control type="text" className="loginId"  id="loginId" onChange={this.handleChange} placeholder="아이디를 입력해주세요!" />
+                                            <Form.Control type="text" className="password" id="password" onChange={this.handleChange} placeholder="패스워드를 입력해주세요!" />
                                         </div>
                                         <div className="loginButton">
-                                            <Button className="login">로그인</Button>
+                                            <Button className="login" onClick={this.isLogin}>로그인</Button>
                                         </div>
                                     </div>
                                     <div className="registerContainer">
