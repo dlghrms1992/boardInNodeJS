@@ -21,6 +21,10 @@ module.exports = (sequlize, DataTypes) => {
             type : DataTypes.STRING(700),
             allowNull : false,
         },
+        password_salt:{
+            type : DataTypes.STRING(700),
+            allowNull : false,
+        },
         phone: {
             type : DataTypes.STRING(700),
             allowNull : false,

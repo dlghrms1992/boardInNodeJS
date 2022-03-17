@@ -73,7 +73,7 @@ export default class LoginModal extends Component{
                                     <div className="longinContainer">
                                         <div className="loginInput">
                                             <Form.Control type="text" className="loginId"  id="loginId" onChange={this.handleChange} placeholder="아이디를 입력해주세요!" />
-                                            <Form.Control type="text" className="password" id="password" onChange={this.handleChange} placeholder="패스워드를 입력해주세요!" />
+                                            <Form.Control type="password" className="password" id="password" onChange={this.handleChange} placeholder="패스워드를 입력해주세요!" />
                                         </div>
                                         <div className="loginButton">
                                             <Button className="login" onClick={this.isLogin}>로그인</Button>

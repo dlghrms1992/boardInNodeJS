@@ -27,10 +27,10 @@ router.post("/register.do", async (req, res) => {
         regdate: new Date(),
     }).then(result => {
         console.log('result ==>', result);
-        res.send({"result": true});
+        res.send({"result": true , "msg": "회원가입이 완료 되었습니다.!"});
     }).catch(err => {
         console.log("error ==>", err);
-        res.send({"result": err});
+        res.send({"result": false, "msg": err});
     });
 
 
@@ -38,6 +38,28 @@ router.post("/register.do", async (req, res) => {
 
 router.post("/login.do", async (req, res) => {
     console.log(" call login --- >",req.body);
+    let param = req.body;
+
+    let user = await UserModel.findOne({
+        where : {
+            loginId : param.loginId
+        }
+    });
+
+    if(user == null) {
+        return res.send({"result" : false,"msg" : "사용자가 존재하지 않습니다."});
+    };
+
+    const hashedPassword = await crypto.decodePassword(param.password, user.password_salt);
+    
+    if(user.password != hashedPassword){
+        return res.send({"result" : false,"msg" : "비밀번호가 일치하지 않습니다."});
+    }
+
+    // const loginUser = req.session.user {
+
+    // }
+
 });
 
 module.exports = router;
