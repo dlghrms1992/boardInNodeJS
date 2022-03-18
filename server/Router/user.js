@@ -3,7 +3,7 @@ const router = express.Router();
 const {UserModel} = require('../model/index');
 const crypto = require('../common/crypto');
 const {v4} = require('uuid');
-
+const jwt = require('jsonwebtoken');
 // const db_config = require('../../db/database.js');
 // const conn = db_config.init();
 // db_config.connect(conn);
@@ -54,7 +54,22 @@ router.post("/login.do", async (req, res) => {
     
     if(user.password != hashedPassword){
         return res.send({"result" : false,"msg" : "비밀번호가 일치하지 않습니다."});
+    }else {
+        let jwtSecret = user.loginId;
+        token = jwt.sign({
+            type: "JWT",
+            nickname: user.nickname,
+            loginId: user.loginId
+        }, jwtSecret, {
+            expiresIn: '30m',
+            issuer: user.nickname,
+        });
+
+        // return res.send({"result": true, "token": res.status(200).json({code:200, message:'토큰이 발급되었습니다.', token:token})});
+        return res.status(200).json({result:true, message:'토큰이 발급되었습니다.', token:token});
     }
+    
+
 
     // const loginUser = req.session.user {
 
