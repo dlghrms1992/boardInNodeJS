@@ -62,11 +62,11 @@ router.post("/login.do", async (req, res) => {
             loginId: user.loginId
         }, jwtSecret, {
             expiresIn: '30m',
-            issuer: user.nickname,
+        
         });
 
         // return res.send({"result": true, "token": res.status(200).json({code:200, message:'토큰이 발급되었습니다.', token:token})});
-        return res.status(200).json({result:true, message:'토큰이 발급되었습니다.', token:token});
+        return res.status(200).json({result:true, message:'로그인에 성공하였습니다.', token:token});
     }
     
 
