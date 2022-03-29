@@ -36,8 +36,7 @@ export default class Register extends Component {
 
         try {
             axios.post("http://localhost:12201/user/register.do", params).then(res => {
-                console.log("test ==> ", res);
-                console.log("test ==> ", res.data);
+            
             });
         }catch(error) {
             console.log("err == > ", error);

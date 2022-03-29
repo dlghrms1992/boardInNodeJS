@@ -11,6 +11,7 @@ export default class Nav extends Component {
             writeOn : false,
             isOpened : true ? false : false,
             title : '',
+            isLogin : false,
         };
         // this.logindModalClose = this.logindModalClose.bind(this.state);
         console.log('nav ===== >', typeof this.state.isOpened);

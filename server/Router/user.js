@@ -14,6 +14,17 @@ router.post("/register.do", async (req, res) => {
 
     let params = req.body;
     const {password, salt} = await crypto.encryptPassword(params.password);
+
+    
+    let user = await UserModel.findOne({
+        where : {
+            loginId : param.loginId
+        }
+    });
+
+    if(user != null){
+        return res.send({"result": false , "msg": "아이디가 존재합니다."});
+    }
     UserModel.create({
         userid: v4(),
         loginId: params.loginId,
@@ -62,7 +73,6 @@ router.post("/login.do", async (req, res) => {
             loginId: user.loginId
         }, jwtSecret, {
             expiresIn: '30m',
-        
         });
 
         // return res.send({"result": true, "token": res.status(200).json({code:200, message:'토큰이 발급되었습니다.', token:token})});

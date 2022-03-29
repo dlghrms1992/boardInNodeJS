@@ -16,9 +16,23 @@ export default class LoginModal extends Component{
             isOpened : this.props.isOpened,
             title : this.props.title,
             isRegister : false,
+            isInfo : {
+                result : false,
+                message : '',
+            },
         };
         this.isLogin = this.isLogin.bind(this);
+    }
 
+    onInfoMdal = () => {
+
+    }
+
+    handleChange = e  => {
+        console.log("call event~!");
+        this.setState({
+            [e.target.id] : [e.target.value],
+        });
     }
 
     register = () => {
@@ -29,14 +43,6 @@ export default class LoginModal extends Component{
         });
     }
 
-    handleChange = e  => {
-        console.log("call event~!");
-        this.setState({
-            [e.target.id] : [e.target.value],
-        });
-    }
-
-
     isLogin = () => {
         console.log(" 로그인 합시다=> ", this.state);
         let params = {
@@ -46,8 +52,19 @@ export default class LoginModal extends Component{
 
         try {
             axios.post("http://localhost:12201/user/login.do", params).then(res => {
-                console.log("test ==> ", res);
-                console.log("test ==> ", res.data);
+                if(res.data.result){
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+                    console.log("test -- > ",       axios.defaults.headers.common['Authorization'] );
+                }else {
+                    this.setState({
+                        isInfo : {
+                            result : res.data.result,
+                            message : '로그인에 실패하였습니다!',
+                        }
+                    })
+                    delete axios.defaults.headers.common['Authorization'];
+                    return this.state.isInfo;
+                }
             });
         }catch(error) {
             console.log("err == > ", error);

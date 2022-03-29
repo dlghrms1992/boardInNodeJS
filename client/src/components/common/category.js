@@ -20,6 +20,7 @@ export default class category extends Component {
         const resopnse = await axios.get("http://localhost:12201/api");
         const data = resopnse;
         console.log("data ==> ", data);
+        console.log("test 2 ==>", axios.defaults.headers.common['Authorization']);
         return data;
     }
 

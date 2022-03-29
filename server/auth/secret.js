@@ -1,8 +1,8 @@
-module.exports.secret = (user) =>{
-    secretKey : user.loginId,
+module.exports = {
+    secretKey : loginId,
     option : {
         algorithm :"HS256",
         expireIn : "30",
-        issuer : user.loginId,
+        issuer : loginId,
     }
 }
