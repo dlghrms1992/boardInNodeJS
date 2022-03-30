@@ -55,6 +55,7 @@ export default class LoginModal extends Component{
                 if(res.data.result){
                     axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
                     console.log("test -- > ",       axios.defaults.headers.common['Authorization'] );
+                    props.history.push('/');
                 }else {
                     this.setState({
                         isInfo : {
