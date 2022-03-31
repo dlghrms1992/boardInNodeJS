@@ -10,6 +10,8 @@ const {TitleModel} = require('../model/index');
 router.get("/", async (req, res) => {
     const titleList = await TitleModel.findAll();
     // console.log("list ==> ", titleList);
+    const token = req.headers['access-token'];
+    console.log("tokenn == > ", token);
     res.send({list: titleList});
 });
 
